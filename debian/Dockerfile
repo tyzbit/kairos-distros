@@ -7,10 +7,11 @@ RUN apt-get update && \
     firmware-realtek \
     && \
    # update-initramfs -u && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* 
+    # && \
     # https://kairos.io/docs/advanced/customizing/
-    kernel=$(ls /lib/modules | head -n1) && \
-    dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
-    ln -sf "initrd-${kernel}" /boot/initrd && \
-    kernel=$(ls /lib/modules | head -n1) && \
-    depmod -a "${kernel}"
+    # kernel=$(ls /lib/modules | head -n1) && \
+    # dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
+    # ln -sf "initrd-${kernel}" /boot/initrd && \
+    # kernel=$(ls /lib/modules | head -n1) && \
+    # depmod -a "${kernel}"
