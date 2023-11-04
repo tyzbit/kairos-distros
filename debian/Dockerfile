@@ -5,7 +5,5 @@ COPY rootfs/ /
 RUN apt-get update && \
     apt-get install -y \
     bluez \
-    dbus-broker \
     && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    systemctl enable dbus-broker.service
+    apt-get clean && rm -rf /var/lib/apt/lists/*
