@@ -5,5 +5,6 @@ COPY rootfs/ /
 RUN apt-get update && \
     apt-get install -y \
     bluez \
+    smartmontools \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
