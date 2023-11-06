@@ -8,6 +8,7 @@ RUN apt-get update && \
     bluez=5.70-1 \
     intel-media-va-driver=23.3.5+dfsg1-1 \
     smartmontools=7.3-1+b1 \
+    wget=1.21.3-1+b2 \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
