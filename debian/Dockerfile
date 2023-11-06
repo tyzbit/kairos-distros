@@ -9,7 +9,9 @@ RUN apt-get update && \
     smartmontools=7.3-1+b1 \
     wget=1.21.3-1+b2 \
     && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> os-release && \
+    echo "TYZBIT_VARIANT=debian" >> os-release
 
 # Specific to Intel UHD 770 / 13th gen Intel GPUs
 WORKDIR /lib/firmware/i915
