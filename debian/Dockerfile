@@ -4,6 +4,7 @@ COPY rootfs/ /
 
 RUN apt-get update && \
     apt-get install -y \
+    bc \
     bluez \
     smartmontools \
     && \
