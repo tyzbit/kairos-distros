@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y \
     bc=1.07.1-3+b1 \
     bluez=5.70-1 \
-    intel-media-va-driver=23.3.5+dfsg1-1 \
+    # intel-media-va-driver=23.3.5+dfsg1-1 \
     smartmontools=7.3-1+b1 \
     wget=1.21.3-1+b2 \
     && \
