@@ -10,3 +10,13 @@ RUN apt-get update && \
     smartmontools=7.3-1+b1 \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Specific to Intel UHD 770
+WORKDIR /lib/firmware/i915
+RUN wget -r -nd -e robots=no -A '*.bin' --accept-regex '/plain/' \
+    https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/
+RUN kernel=$(ls /lib/modules | head -n1) && \
+    dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
+    ln -sf "initrd-${kernel}" /boot/initrd && \
+    kernel=$(ls /lib/modules | head -n1) &&\
+    depmod -a "${kernel}"
