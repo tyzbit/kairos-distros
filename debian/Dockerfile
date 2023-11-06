@@ -15,6 +15,7 @@ RUN apt-get update && \
 # Specific to Intel UHD 770
 WORKDIR /lib/firmware/i915
 RUN wget -r -nd -e robots=no -A '*.bin' --accept-regex '/plain/' \
+    # TODO: pin to a tag
     https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915/
 RUN kernel=$(ls /lib/modules | head -n1) && \
     dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
