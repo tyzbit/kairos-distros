@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y \
     bc \
     bluez \
+    intel-media-va-driver \
     smartmontools \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
