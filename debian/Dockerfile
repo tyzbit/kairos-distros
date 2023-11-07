@@ -13,10 +13,17 @@ RUN apt-get update && \
     echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> os-release && \
     echo "TYZBIT_VARIANT=debian" >> os-release
 
+# RTL 8125
+WORKDIR /lib/firmware/rtl_nic
+RUN wget -r -nd -e robots=no -A '*.fw' --accept-regex '/plain/' \
+    https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/rtl_nic?h=20231030
+
 # Specific to Intel UHD 770 / 13th gen Intel GPUs
 WORKDIR /lib/firmware/i915
 RUN wget -r -nd -e robots=no -A '*.bin' --accept-regex '/plain/' \
-    https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/?h=20231030
+    https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915?h=20231030
+
+# Update kernel modules
 RUN kernel=$(ls /lib/modules | head -n1) && \
     dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd && \
