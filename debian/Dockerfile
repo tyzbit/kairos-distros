@@ -7,7 +7,7 @@ RUN apt-get update && \
     bc=1.07.* \
     bluez=5.70-* \
     htop=3.2.2* \
-    iotop=iotop=0.6-* \
+    iotop=0.6-* \
     smartmontools=7.3-* \
     wget=1.21.* \
     && \
