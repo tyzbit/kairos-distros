@@ -4,10 +4,12 @@ COPY rootfs/ /
 
 RUN apt-get update && \
     apt-get install -y \
-    bc=1.07.1-3+b1 \
-    bluez=5.70-1 \
-    smartmontools=7.3-1+b1 \
-    wget=1.21.3-1+b2 \
+    bc=1.07.* \
+    bluez=5.70-* \
+    htop=3.2.2* \
+    iotop=iotop=0.6-* \
+    smartmontools=7.3-* \
+    wget=1.21.* \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> os-release && \
