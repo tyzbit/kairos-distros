@@ -5,7 +5,7 @@ COPY rootfs/ /
 RUN apt-get update && \
     apt-get install -y \
     bc=1.07.* \
-    bluez=5.70-* \
+    bluez=5.66-* \
     htop=3.2.2* \
     iotop=0.6-* \
     smartmontools=7.3-* \
