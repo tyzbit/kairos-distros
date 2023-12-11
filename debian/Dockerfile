@@ -1,4 +1,4 @@
-FROM quay.io/kairos/kairos-debian:v2.4.1-k3sv1.27.3-k3s1
+FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v2.4.3-k3sv1.27.6-k3s1
 
 COPY rootfs/ /
 
@@ -12,8 +12,8 @@ RUN apt-get update && \
     wget=1.21.* \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> os-release && \
-    echo "TYZBIT_VARIANT=debian" >> os-release
+    echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> /etc/os-release && \
+    echo "TYZBIT_VARIANT=debian" >> /etc/os-release
 
 # RTL 8125
 WORKDIR /lib/firmware/rtl_nic
@@ -29,5 +29,5 @@ RUN wget -r -nd -e robots=no -A '*.bin' --accept-regex '/plain/' \
 RUN kernel=$(ls /lib/modules | head -n1) && \
     dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd && \
-    kernel=$(ls /lib/modules | head -n1) &&\
+    kernel=$(ls /lib/modules | head -n1) && \
     depmod -a "${kernel}"
