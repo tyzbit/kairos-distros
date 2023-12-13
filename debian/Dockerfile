@@ -8,6 +8,7 @@ RUN apt-get update && \
     bluez=5.66-* \
     htop=3.2.2* \
     iotop=0.6-* \
+    nethogs=0.8.7* \
     smartmontools=7.3-* \
     wget=1.21.* \
     && \
