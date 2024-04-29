@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^bookworm-standard-amd64-generic-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-k3sv(?<compatibility>[^-]+])-k3s(?<build>\\d+)$"
+      "versioning": "regex:^bookworm-standard-amd64-generic-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-k3sv(?<compatibility>[^-]+)-k3s(?<build>\\d+)$"
     }
   ]
 }
