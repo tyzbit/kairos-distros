@@ -9,6 +9,7 @@ RUN apt-get update && \
     bluez-firmware=1.2-* \
     firmware-iwlwifi=20230210-* \
     # for i915
+    fancontrol=1:3* \
     firmware-misc-nonfree=20230210-* \
     firmware-realtek=20230210-* \
     htop=3.2.2* \
