@@ -1,4 +1,4 @@
-FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.1.0-k3sv1.30.2-k3s1
+FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.1.1-k3sv1.30.2-k3s1
 
 COPY rootfs/ /
 
