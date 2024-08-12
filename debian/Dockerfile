@@ -7,6 +7,7 @@ RUN apt-get update && \
     bc=1.07.* \
     bluetooth=5.66-* \
     bluez-firmware=1.2-* \
+    dbus-broker=33-* \
     firmware-iwlwifi=20230210-* \
     # for i915
     fancontrol=1:3* \
