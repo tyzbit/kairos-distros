@@ -16,13 +16,15 @@ RUN apt-get update && \
     htop=3.2.2* \
     iotop=0.6-* \
     nethogs=0.8.7* \
-    iscsiuio=2.1.8-1 \
+    # iscsiuio=2.1.8-1 \
     smartmontools=7.3-* \
+    usbutils=1:014-* \
     wget=1.21.* \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> /etc/os-release && \
-    echo "TYZBIT_VARIANT=debian" >> /etc/os-release
+    echo "TYZBIT_VARIANT=debian" >> /etc/os-release && \
+    systemctl enable dbus-broker.service
 
 # Update kernel modules
 RUN kernel=$(ls /lib/modules | head -n1) && \
