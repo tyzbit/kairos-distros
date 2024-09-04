@@ -27,8 +27,7 @@ RUN apt-get update && \
     systemctl enable dbus-broker.service
 
 # Update kernel modules
-RUN depmod -a "${kernel}" \
-     kernel=$(ls /lib/modules | head -n1) && \
+RUN kernel=$(ls /lib/modules | head -n1) && \
+    depmod -a "${kernel}" \
     dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
-    ln -sf "initrd-${kernel}" /boot/initrd && \
-    kernel=$(ls /lib/modules | head -n1)
+    ln -sf "initrd-${kernel}" /boot/initrd
