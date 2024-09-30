@@ -17,7 +17,7 @@ RUN apt-get update && \
     iotop=0.6-* \
     # iscsiuio=2.1.8-1 \
     nethogs=0.8.7* \
-    openiscsi=2.1.8-1 \
+    open-iscsi=2.1.8-1 \
     smartmontools=7.3-* \
     usbutils=1:014-* \
     wget=1.21.* \
