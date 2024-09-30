@@ -15,7 +15,7 @@ RUN apt-get update && \
     firmware-realtek=20230210-* \
     htop=3.2.2* \
     iotop=0.6-* \
-    # iscsiuio=2.1.8-1 \
+    iscsiuio=2.1.8-1 \
     nethogs=0.8.7* \
     open-iscsi=2.1.8-1 \
     smartmontools=7.3-* \
