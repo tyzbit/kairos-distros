@@ -31,4 +31,5 @@ RUN apt-get update && \
 RUN kernel=$(ls /lib/modules | head -n1) && \
     depmod -a "${kernel}" && \
     dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
-    ln -sf "initrd-${kernel}" /boot/initrd
+    ln -sf "initrd-${kernel}" /boot/initrd && \
+    update-grub
