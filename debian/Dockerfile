@@ -6,16 +6,16 @@ RUN apt-get update && \
     apt-get install -y \
     bc=1.07.* \
     bluetooth=5.66-* \
-    bluez-firmware=1.2-* \
+    # bluez-firmware=1.2-* \
     dbus-broker=33-* \
-    firmware-iwlwifi=20230210-* \
+    # firmware-iwlwifi=20230210-* \
     # for i915
     fancontrol=1:3* \
-    firmware-misc-nonfree=20230210-* \
-    firmware-realtek=20230210-* \
+    # firmware-misc-nonfree=20230210-* \
+    # firmware-realtek=20230210-* \
     htop=3.2.2* \
     iotop=0.6-* \
-    iscsiuio=2.1.8-1 \
+    # iscsiuio=2.1.8-1 \
     nethogs=0.8.7* \
     open-iscsi=2.1.8-1 \
     smartmontools=7.3-* \
@@ -28,14 +28,7 @@ RUN apt-get update && \
     systemctl enable dbus-broker.service
 
 # Update kernel modules
-WORKDIR /boot
-RUN echo "begin" && \
-    ls -la /lib/modules && \
-    kernel=$(ls /lib/modules | head -n1) && \
+RUN kernel=$(ls /lib/modules | head -n1) && \
     depmod -a "${kernel}" && \
-    echo "before dracut" && \
-    ls -la /lib/modules && \
     dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
-    echo "after dracut" && \
-    ls -la /lib/modules && \
     ln -sf "initrd-${kernel}" /boot/initrd
