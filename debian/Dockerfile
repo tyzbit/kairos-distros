@@ -11,8 +11,8 @@ RUN apt-get update && \
     # firmware-iwlwifi=20230210-* \
     # for i915
     fancontrol=1:3* \
-    firmware-misc-nonfree=20230210-* \
-    firmware-realtek=20230210-* \
+    # firmware-misc-nonfree=20230210-* \
+    # firmware-realtek=20230210-* \
     htop=3.2.2* \
     iotop=0.6-* \
     iscsiuio=2.1.8-1 \
