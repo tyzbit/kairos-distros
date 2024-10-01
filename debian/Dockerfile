@@ -28,8 +28,14 @@ RUN apt-get update && \
     systemctl enable dbus-broker.service
 
 # Update kernel modules
-RUN kernel=$(ls /lib/modules | head -n1) && \
+WORKDIR /boot
+RUN echo "begin" && \
+    ls -la /lib/modules && \
+    kernel=$(ls /lib/modules | head -n1) && \
     depmod -a "${kernel}" && \
-    dracut -f --regenerate-all && \
-    # dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
+    echo "before dracut" && \
+    ls -la /lib/modules && \
+    dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
+    echo "after dracut" && \
+    ls -la /lib/modules && \
     ln -sf "initrd-${kernel}" /boot/initrd
