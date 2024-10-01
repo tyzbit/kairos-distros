@@ -9,10 +9,10 @@ RUN apt-get update && \
     bluez-firmware=1.2-* \
     dbus-broker=33-* \
     # firmware-iwlwifi=20230210-* \
-    # for i915
     fancontrol=1:3* \
-    # firmware-misc-nonfree=20230210-* \
-    # firmware-realtek=20230210-* \
+    # for i915
+    firmware-misc-nonfree=20230210-* \
+    firmware-realtek=20230210-* \
     htop=3.2.2* \
     iotop=0.6-* \
     iscsiuio=2.1.8-1 \
