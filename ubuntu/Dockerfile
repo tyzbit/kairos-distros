@@ -5,20 +5,22 @@ FROM quay.io/kairos/ubuntu:24.04-standard-amd64-generic-master-k3sv1.30.3-k3s1
 RUN apt-get update && \
     apt-get install -y \
     bc=1.07.* \
-    bluetooth=5.72-* \
+    bluetooth=5.66-* \
     bluez-firmware=1.2-* \
-    dbus-broker=35-* \
+    dbus-broker=33-* \
     # firmware-iwlwifi=20230210-* \
     # for i915
     fancontrol=1:3* \
     # firmware-misc-nonfree=20230210-* \
     # firmware-realtek=20230210-* \
-    htop=3.3.0* \
+    htop=3.2.2* \
     iotop=0.6-* \
     nethogs=0.8.7* \
-    # iscsiuio=2.1.8-1 \
-    smartmontools=7.4-* \
-    usbutils=1:017-* \
+    iscsiuio=2.1.8-1 \
+    nethogs=0.8.7* \
+    open-iscsi=2.1.8-1 \
+    smartmontools=7.3-* \
+    usbutils=1:014-* \
     wget=1.21.* \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
@@ -28,7 +30,6 @@ RUN apt-get update && \
 
 # Update kernel modules
 RUN kernel=$(ls /lib/modules | head -n1) && \
-    dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
-    ln -sf "initrd-${kernel}" /boot/initrd && \
-    kernel=$(ls /lib/modules | head -n1) && \
-    depmod -a "${kernel}"
+    depmod -a "${kernel}" && \
+    dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
+    ln -sf "initrd-${kernel}" /boot/initrd
