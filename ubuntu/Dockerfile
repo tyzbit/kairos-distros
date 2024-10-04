@@ -1,6 +1,6 @@
 FROM quay.io/kairos/ubuntu:24.04-standard-amd64-generic-master-k3sv1.30.3-k3s1
 
-COPY rootfs/ /
+# COPY rootfs/ /
 
 RUN apt-get update && \
     apt-get install -y \
@@ -13,14 +13,14 @@ RUN apt-get update && \
     fancontrol=1:3* \
     # firmware-misc-nonfree=20230210-* \
     # firmware-realtek=20230210-* \
-    htop=3.2.2* \
+    htop=3.3* \
     iotop=0.6-* \
     nethogs=0.8.7* \
-    iscsiuio=2.1.8-1 \
+    iscsiuio=2.1.9-* \
     nethogs=0.8.7* \
-    open-iscsi=2.1.8-1 \
-    smartmontools=7.3-* \
-    usbutils=1:014-* \
+    open-iscsi=2.1.9-* \
+    smartmontools=7.4-* \
+    usbutils=1:017-* \
     wget=1.21.* \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
