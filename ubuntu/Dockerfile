@@ -5,9 +5,9 @@ FROM quay.io/kairos/ubuntu:24.04-standard-amd64-generic-master-k3sv1.30.3-k3s1
 RUN apt-get update && \
     apt-get install -y \
     bc=1.07.* \
-    bluetooth=5.66-* \
+    bluetooth=5.72-* \
     bluez-firmware=1.2-* \
-    dbus-broker=33-* \
+    dbus-broker=35-* \
     # firmware-iwlwifi=20230210-* \
     # for i915
     fancontrol=1:3* \
