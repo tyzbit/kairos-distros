@@ -1,6 +1,6 @@
 FROM quay.io/kairos/ubuntu:24.04-standard-amd64-generic-master-k3sv1.30.3-k3s1
 
-# COPY rootfs/ /
+COPY rootfs/ /
 
 RUN apt-get update && \
     apt-get install -y \
