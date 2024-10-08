@@ -1,6 +1,6 @@
 FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.2.1-k3sv1.30.5-k3s1
 
-COPY rootfs/ /
+COPY debian.sources /etc/apt/sources.list.d/debian.sources
 
 RUN apt-get update && \
     apt-get install -y \
