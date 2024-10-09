@@ -1,6 +1,6 @@
 FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.2.1-k3sv1.30.5-k3s1
 
-COPY debian.sources /etc/apt/sources.list.d/tyzbit-debian.sources
+COPY debian.sources /etc/apt/sources.list.d/debian.sources
 
 RUN apt-get update && \
     apt-get install -y \
@@ -29,7 +29,7 @@ RUN apt-get update && \
     systemctl enable dbus-broker.service
 
 # Update kernel modules
-RUN kernel=$(ls /lib/modules | head -n1) && \
+RUN kernel=6.1.0-25 && \
     depmod -a "${kernel}" && \
     dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd
