@@ -1,13 +1,8 @@
-Types: deb
-# http://snapshot.debian.org/archive/debian/20231120T000000Z
-URIs: http://deb.debian.org/debian
-Suites: bookworm bookworm-updates
-Components: main non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 
-Types: deb
-# http://snapshot.debian.org/archive/debian-security/20231120T000000Z
-URIs: http://deb.debian.org/debian-security
-Suites: bookworm-security
-Components: main
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+deb http://deb.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
