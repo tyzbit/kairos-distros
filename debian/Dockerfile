@@ -25,8 +25,7 @@ RUN apt-get update && \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> /etc/os-release && \
-    echo "TYZBIT_VARIANT=debian" >> /etc/os-release && \
-    systemctl enable dbus-broker.service
+    echo "TYZBIT_VARIANT=debian" >> /etc/os-release
 
 # Update kernel modules
 RUN kernel=$(ls /lib/modules | head -n1) && \
