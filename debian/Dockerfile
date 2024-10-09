@@ -4,7 +4,8 @@ COPY rootfs/ /
 
 ## TODO: I need firmware in order to boot
 
-RUN apt-get update && \
+RUN rm /var/lib/dpkg/triggers/update-initramfs \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
     # bc=1.07.* \
     # bluetooth=5.66-* \
