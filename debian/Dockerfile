@@ -1,5 +1,7 @@
 FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.2.1-k3sv1.30.5-k3s1
 
+COPY debian.sources /etc/apt/sources.list.d/tyzbit-debian.sources
+
 RUN apt-get update && \
     apt-get install -y \
     bc=1.07.* \
@@ -9,8 +11,8 @@ RUN apt-get update && \
     # firmware-iwlwifi=20230210-* \
     fancontrol=1:3* \
     # for i915
-    # firmware-misc-nonfree=20230210-* \
-    # firmware-realtek=20230210-* \
+    firmware-misc-nonfree=20230210-* \
+    firmware-realtek=20230210-* \
     htop=3.2.2* \
     iotop=0.6-* \
     intel-media-va-driver=23.* \
