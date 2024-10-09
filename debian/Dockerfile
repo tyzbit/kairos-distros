@@ -4,7 +4,7 @@ COPY rootfs/ /
 
 ## TODO: I need firmware in order to boot
 
-RUN rm /var/lib/dpkg/triggers/update-initramfs \
+RUN rm /var/lib/dpkg/triggers/update-initramfs && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
     # bc=1.07.* \
