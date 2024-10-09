@@ -33,3 +33,13 @@ RUN kernel=$(ls /lib/modules | head -n1) && \
     depmod -a "${kernel}" && \
     dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd
+
+RUN kernel=$(ls /boot/vmlinuz-* 2>/dev/null | head -n1) && \
+      if [ -e "$kernel" ]; then \
+        ln -sf "$kernel" /boot/vmlinuz; \
+      fi || true
+
+RUN kernel=$(ls /boot/Image* 2>/dev/null | head -n1) && \
+      if [ -e "$kernel" ]; then \
+        ln -sf "$kernel" /boot/vmlinuz; \
+      fi || true
