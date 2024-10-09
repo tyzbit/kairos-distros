@@ -2,9 +2,8 @@ FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.2.1-k3sv1.30.5-k3s
 
 COPY rootfs/ /
 
-## TODO: I need firmware in order to boot
-
-RUN apt-get update && \
+RUN echo "kernel: $(ls /lib/modules | head -n1)" \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
     bc=1.07.* \
     bluetooth=5.66-* \
@@ -29,8 +28,8 @@ RUN apt-get update && \
     echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> /etc/os-release && \
     echo "TYZBIT_VARIANT=debian" >> /etc/os-release && \
     systemctl enable dbus-broker.service && \
-    echo "done"
-    # kernel=$(ls /lib/modules | head -n1) && \
-    # depmod -a "${kernel}" && \
-    # dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
-    # ln -sf "initrd-${kernel}" /boot/initrd
+    # echo "done"
+    kernel=$(ls /lib/modules | head -n1) && \
+    depmod -a "${kernel}" && \
+    dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
+    ln -sf "initrd-${kernel}" /boot/initrd
