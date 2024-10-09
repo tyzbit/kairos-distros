@@ -7,7 +7,7 @@ RUN apt-get update && \
     bc=1.07.* \
     bluetooth=5.66-* \
     bluez-firmware=1.2-* \
-    dbus-broker=33-* \
+    # dbus-broker=33-* \
     # firmware-iwlwifi=20230210-* \
     fancontrol=1:3* \
     # for i915
@@ -29,7 +29,7 @@ RUN apt-get update && \
     systemctl enable dbus-broker.service
 
 # Update kernel modules
-RUN kernel=6.1.0-25 && \
+RUN kernel=$(ls /lib/modules | head -n1) && \
     depmod -a "${kernel}" && \
     dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd
