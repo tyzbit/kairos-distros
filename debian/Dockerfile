@@ -2,8 +2,8 @@ FROM quay.io/kairos/debian:bookworm-standard-amd64-generic-v3.2.1-k3sv1.30.5-k3s
 
 COPY rootfs/ /
 
-RUN apt-get update -oDebug::pkgAcquire::Worker=1 && \
-    apt-get install -y -oDebug::pkgAcquire::Worker=1 \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     bc=1.07.* \
     bluetooth=5.66-* \
     bluez-firmware=1.2-* \
