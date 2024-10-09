@@ -13,8 +13,8 @@ RUN apt-get update && \
     # firmware-iwlwifi=20230210-* \
     # fancontrol=1:3* \
     # for i915
-    firmware-misc-nonfree=20230210-* \
-    # firmware-realtek=20230210-* \
+    # firmware-misc-nonfree=20230210-* \
+    firmware-realtek=20230210-* \
     # htop=3.2.2* \
     # iotop=0.6-* \
     # intel-media-va-driver=23.* \
@@ -25,10 +25,14 @@ RUN apt-get update && \
     # usbutils=1:014-* \
     # wget=1.21.* \
     && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    # apt-get clean && rm -rf /var/lib/apt/lists/*
     # echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> /etc/os-release && \
     # echo "TYZBIT_VARIANT=debian" >> /etc/os-release
     # systemctl enable dbus-broker.service
+    kernel=$(ls /lib/modules | head -n1) && \
+    depmod -a "${kernel}" && \
+    dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
+    ln -sf "initrd-${kernel}" /boot/initrd
 
 # Update kernel modules
 # RUN kernel=$(ls /lib/modules | head -n1) && \
