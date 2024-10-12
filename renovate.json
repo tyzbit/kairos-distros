@@ -9,28 +9,8 @@
         "FROM (?<depName>\\S+):.*v(?<kairosVersion>[\\d\\.]+).*k3sv(?<k3sVersion>[\\d\\.]+).*"
       ],
       "depNameTemplate": "{{depName}}",
-      "versioningTemplate": "custom",
-      "datasourceTemplate": "docker",
-      "extractVersioning": {
-        "primary": {
-          "versioning": "semver",
-          "versionField": "kairosVersion"
-        },
-        "secondary": {
-          "versioning": "semver",
-          "versionField": "k3sVersion"
-        }
-      },
-      "compareVersioning": [
-        {
-          "versionField": "k3sVersion",
-          "versioning": "semver"
-        },
-        {
-          "versionField": "kairosVersion",
-          "versioning": "semver"
-        }
-      ]
+      "versioningTemplate": "semver",
+      "datasourceTemplate": "docker"
     }
   ]
 }
