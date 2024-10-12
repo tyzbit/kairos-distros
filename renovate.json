@@ -7,7 +7,6 @@
       "matchPackageNames": ["quay.io/kairos/debian"],
       "versioning": "regex:^bookworm-standard-amd64-generic-v(?<kairos>\\d+\\.\\d+\\.\\d+)-k3sv(?<k3s>\\d+\\.\\d+\\.\\d+)-k3s1$",
       "updateTypes": ["minor", "patch"],
-      "priority": 1,
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "^.*-k3sv(?<k3s>\\d+\\.\\d+\\.\\d+)-.*",
       "enabled": true
@@ -17,7 +16,6 @@
       "matchPackageNames": ["quay.io/kairos/debian"],
       "versioning": "regex:^bookworm-standard-amd64-generic-v(?<kairos>\\d+\\.\\d+\\.\\d+)-k3sv(?<k3s>\\d+\\.\\d+\\.\\d+)-k3s1$",
       "updateTypes": ["major", "minor", "patch"],
-      "priority": 2,
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "^bookworm-standard-amd64-generic-v(?<kairos>\\d+\\.\\d+\\.\\d+)-.*",
       "enabled": true
