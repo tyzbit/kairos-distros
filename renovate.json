@@ -6,8 +6,8 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>\\S+):.*\\-k3sv(?<currentValue>[\\d\\.]+)\\-.*",
-        "FROM (?<depName>\\S+):.*\\-v(?<currentValue>[\\d\\.]+)\\-.*"
+        "FROM (?<depName>\\S+):.*\\-k3s(?<currentValue>v[^\\-]+)\\-.*",
+        "FROM (?<depName>\\S+):.*\\-(?<currentValue>v[^\\-]+)\\-.*"
       ],
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker"
