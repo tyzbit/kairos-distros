@@ -1,15 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "mergeConfidence:all-badges",
-    "config:recommended"
-  ],
+  "extends": ["mergeConfidence:all-badges", "config:recommended"],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^Dockerfile$"
-      ],
+      "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
         "FROM\\s+\\S+:(?<depName>[a-zA-Z0-9-/]+):.*\\-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).*",
         "FROM\\s+\\S+:(?<depName>[a-zA-Z0-9-/]+):.*\\-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).*"
@@ -18,5 +13,4 @@
       "versioningTemplate": "semver"
     }
   ]
-}
 }
