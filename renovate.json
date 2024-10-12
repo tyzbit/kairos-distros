@@ -9,6 +9,7 @@
         "FROM (?<depName>\\S+):.*v(?<kairosVersion>[\\d\\.]+).*k3sv(?<k3sVersion>[\\d\\.]+).*"
       ],
       "depNameTemplate": "{{depName}}",
+      "currentValueTemplate": "{{k3sVersion}}.{{kairosVersion}}",
       "versioningTemplate": "semver",
       "datasourceTemplate": "docker"
     }
