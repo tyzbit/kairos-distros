@@ -4,11 +4,11 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
+      "versioning": "regex:^(?<basetag>.*)-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
+      "versioning": "regex:^(?<basetag>.*)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     }
   ]
 }
