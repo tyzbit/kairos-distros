@@ -6,14 +6,14 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["quay.io/kairos/debian"],
       "versioning": "regex:^bookworm-standard-amd64-generic-v(?<kairos>\\d+\\.\\d+\\.\\d+)-k3sv(?<k3s>\\d+\\.\\d+\\.\\d+)-k3s1$",
-      "matchCurrentVersion": "^.*-k3sv(?<k3s>\\d+\\.\\d+\\.\\d+)-.*",
+      "matchCurrentVersion": "^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.*",
       "enabled": true
     },
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["quay.io/kairos/debian"],
       "versioning": "regex:^bookworm-standard-amd64-generic-v(?<kairos>\\d+\\.\\d+\\.\\d+)-k3sv(?<k3s>\\d+\\.\\d+\\.\\d+)-k3s1$",
-      "matchCurrentVersion": "^bookworm-standard-amd64-generic-v(?<kairos>\\d+\\.\\d+\\.\\d+)-.*",
+      "matchCurrentVersion": "^[^\\d]+v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.*",
       "enabled": true
     }
   ]
