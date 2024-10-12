@@ -6,8 +6,8 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM\\s+\\S+:(?<depName>[a-zA-Z0-9-/]+):.*\\-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).*",
-        "FROM\\s+\\S+:(?<depName>[a-zA-Z0-9-/]+):.*\\-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).*"
+        "FROM\\s+\\S+:(?<depName>[a-zA-Z0-9-/]+):.*\\-v(?<currentValue>[^\\-]+)\\-.*",
+        "FROM\\s+\\S+:(?<depName>[a-zA-Z0-9-/]+):.*\\-k3sv(?<currentValue>[^\\-]+)\\-.*"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "semver"
