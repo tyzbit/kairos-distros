@@ -12,7 +12,7 @@
       ],
       "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker",
-      "currentValueTemplate": "{{currentValue}}"
+      "versioningTemplate": "semver"
     }
   ]
 }
