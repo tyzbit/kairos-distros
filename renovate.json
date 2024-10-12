@@ -6,10 +6,21 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>\\S+):.*v(?<kairosVersion>[\\d\\.]+).*k3sv(?<k3sVersion>[\\d\\.]+).*"
+        "FROM (?<depName>\\S+):.*k3sv(?<k3sVersion>[\\d\\.]+).*"
       ],
       "depNameTemplate": "{{depName}}",
-      "currentValueTemplate": "{{k3sVersion}}.{{kairosVersion}}",
+      "currentValueTemplate": "{{k3sVersion}}",
+      "versioningTemplate": "semver",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "FROM (?<depName>\\S+):.*v(?<kairosVersion>[\\d\\.]+).*"
+      ],
+      "depNameTemplate": "{{depName}}",
+      "currentValueTemplate": "{{kairosVersion}}",
       "versioningTemplate": "semver",
       "datasourceTemplate": "docker"
     }
