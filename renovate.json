@@ -10,8 +10,7 @@
         "FROM (?<depName>\\S+):.*\\-v(?<currentValue>[\\d\\.]+)\\-.*"
       ],
       "depNameTemplate": "{{depName}}",
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "semver-coerced"
+      "datasourceTemplate": "docker"
     }
   ]
 }
