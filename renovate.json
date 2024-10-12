@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<image>.*)\\-v(?<ka_major>\\d+)\\.(?<ka_minor>\\d+)\\.(?<ka_patch>\\d+)\\-k3sv(?<major>\\d+)\\.(?<major>\\d+)\\.(?<major>\\d+)\\-.*$"
+      "versioning": "regex:^(?<image>.*)\\-v(?<ka_major>\\d+)\\.(?<ka_minor>\\d+)\\.(?<ka_patch>\\d+)\\-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     }
   ]
 }
