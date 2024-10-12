@@ -1,4 +1,4 @@
-FROM quay.io/kairos/ubuntu:24.04-standard-amd64-generic-master-k3sv1.30.3-k3s1
+FROM quay.io/kairos/ubuntu:24.04-standard-amd64-generic-v3.2.0-rc1-k3sv1.31.1-k3s1
 
 # COPY rootfs/ /
 
