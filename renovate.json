@@ -1,17 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["mergeConfidence:all-badges", "config:recommended"],
-  "customManagers": [
+  "extends": ["config:base"],
+  "packageRules": [
     {
-      "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "FROM (?<depName>\\S+):.*k3s(?<currentValue>[\\d\\.]+)-.*",
-        "FROM (?<depName>\\S+):.*v(?<currentValue>[\\d\\.]+)-.*"
-      ],
-      "depNameTemplate": "{{depName}}",
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "semver-coerced"
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     }
   ]
 }
