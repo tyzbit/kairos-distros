@@ -6,11 +6,12 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM\\s+(?<depName>\\S+):.*\\-k3sv(?<currentValue>[^\\-]+)\\-.*",
-        "FROM\\s+(?<depName>\\S+):.*\\-v(?<currentValue>[^\\-]+)\\-.*"
+        "FROM (?<depName>\\S+):.*\\-k3sv(?<currentValue>[^\\-]+)\\-.*",
+        "FROM (?<depName>\\S+):.*\\-v(?<currentValue>[^\\-]+)\\-.*"
       ],
+      "depNameTemplate": "{{depName}}",
       "datasourceTemplate": "docker",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "semver-coerced"
     }
   ]
 }
