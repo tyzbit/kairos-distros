@@ -6,12 +6,17 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>\\S+):.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*-k3sv(?<k3smajor>\\d+)\\.(?<k3sminor>\\d+)\\.(?<k3spatch>\\d+)-.*"
+        "FROM (?<depName>\\S+):.*-v(?<currentValue>\\d+\\.(?<minor>\\d+\\.(?<patch>\\d+)\\-.*"
       ],
       "depNameTemplate": "{{depName}}",
-      "currentValueTemplate": "{{major}}.{{minor}}.{{patch}}.{{k3smajor}}{{k3sminor}}{{k3spatch}}",
       "versioningTemplate": "semver",
       "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     }
   ]
 }
