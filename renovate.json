@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["mergeConfidence:all-badges", "config:recommended"],
+  "extends": ["config:base"],
   "customManagers": [
     {
       "customType": "regex",
