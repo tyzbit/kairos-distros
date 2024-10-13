@@ -10,7 +10,7 @@
         "FROM (?<depName>\\S+):.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*"
       ],
       "versioningTemplate": "semver",
-      "currentValueTemplate": "{{major}}.{{minor}}.{{patch}}",
+      "currentValueTemplate": "{{{major}}}.{{{minor}}}.{{{patch}}}",
       "datasourceTemplate": "docker"
     }
   ]
