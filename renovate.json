@@ -16,7 +16,13 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
+      "description": "k3s Kubernetes Version",
       "versioning": "regex:^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "description": "Kairos Version",
+      "versioning": "regex:^.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     }
   ]
 }
