@@ -17,7 +17,7 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>\\S+):(?<currentValue>.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*)"
+        "FROM (?<dependency>\\S+):(?<currentValue>.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*)"
       ],
       "depNameTemplate": "{{dependency}}-kairos",
       "packageNameTemplate": "{{dependency}}",
