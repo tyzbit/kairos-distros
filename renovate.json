@@ -6,7 +6,7 @@
       "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "FROM (?<depName>\\S+):.*-v(?<currentValue>\\d+\\.\\d+\\.\\d+)\\-.*"
+        "FROM (?<depName>\\S+):.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*"
       ],
       "depNameTemplate": "{{depName}}",
       "versioningTemplate": "semver",
