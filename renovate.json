@@ -9,7 +9,7 @@
         "FROM (?<depName>\\S+):(?<currentValue>.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*)"
       ],
       "depNameTemplate": "{{depName}}-k3s",
-      "packageNameTemplate": "{{depName}}",
+      "packageNameTemplate": "{{depName}}-k3s",
       "versioningTemplate": "semver",
       "datasourceTemplate": "docker"
     },
@@ -20,7 +20,7 @@
         "FROM (?<depName>\\S+):(?<currentValue>.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*)"
       ],
       "depNameTemplate": "{{depName}}-kairos",
-      "packageNameTemplate": "{{depName}}",
+      "packageNameTemplate": "{{depName}}-kairos",
       "versioningTemplate": "semver",
       "datasourceTemplate": "docker"
     }
