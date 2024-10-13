@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "description": "k3s Kubernetes Version",
+      "description": "K3S Kubernetes Version",
       "versioning": "regex:^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
     },
     {
