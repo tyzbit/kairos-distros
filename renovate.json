@@ -1,16 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["mergeConfidence:all-badges", "config:recommended"],
-  "packageRules": [
+  "customManagers": [
     {
-      "matchDatasources": ["docker"],
-      "description": "K3S Kubernetes Version",
-      "versioning": "regex:^.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "description": "Kairos Version",
-      "versioning": "regex:^.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*$"
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "FROM (?<depName>\\S+):(?<currentValue>.*-k3sv(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*)",
+        "FROM (?<depName>\\S+):(?<currentValue>.*-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\-.*)"
+      ],
+      "depNameTemplate": "{{depName}}",
+      "versioningTemplate": "semver",
+      "datasourceTemplate": "docker"
     }
   ]
 }
