@@ -1,4 +1,4 @@
-FROM quay.io/kairos/debian:testing-standard-amd64-generic-v3.3.0-k3sv1.32.0-k3s1
+FROM quay.io/kairos/debian:testing-standard-amd64-generic-v3.3.1-k3sv1.32.1-k3s1
 
 COPY rootfs/ /
 
@@ -33,7 +33,7 @@ RUN apt-get update && \
     echo "TYZBIT_VARIANT=debian" >> /etc/os-release
 
 # Update kernel modules
-RUN kernel=$(ls /lib/modules | head -n1) && \
+RUN kernel=$(ls /lib/modules | tail -n1) && \
     depmod -a "${kernel}" && \
     dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd
