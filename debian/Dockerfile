@@ -29,6 +29,10 @@ RUN apt-get update && \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Force enp3s0
+RUN grub2-editenv - \
+    set "$(grub2-editenv - list | grep kernelopts) ip=enp3s0:dhcp"
+
 # https://kairos.io/docs/advanced/customizing/#customizing-the-kernel
 # Create the kernel symlink
 RUN kernel=$(ls /boot/vmlinuz-* | head -n1) && \
