@@ -25,7 +25,7 @@ RUN apt-get update && \
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN for action in install init; do \
     /kairos-init \
-    $action \
+    -s $action \
     --version "${VERSION}" \
     -l debug \
     -v core \
