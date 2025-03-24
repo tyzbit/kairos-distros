@@ -1,3 +1,4 @@
+# FROM quay.io/kairos/debian:testing-standard-amd64-generic-v3.3.1-k3sv1.32.1-k3s1
 FROM quay.io/kairos/kairos-init:latest AS kairos-init
 FROM quay.io/kairos/debian:testing-standard-amd64-generic-v3.3.1-k3sv1.32.1-k3s1
 
