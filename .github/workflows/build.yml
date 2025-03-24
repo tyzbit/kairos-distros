@@ -26,6 +26,6 @@ jobs:
             version="$(cat $folder/Dockerfile | head -n 1 | grep -Po -- 'v[0-9]+.[0-9]+.[0-9]+.*')"
             
             tag="$distro-$version-${{ github.run_number }}"
-            docker build -t ghcr.io/${{ github.repository }}:$tag --build-arg "TAG=${tag}" "$folder"
+            docker build -t ghcr.io/${{ github.repository }}:$tag --build-arg "VERSION=${version}" "$folder"
             docker push ghcr.io/${{ github.repository }}:$tag
           done
