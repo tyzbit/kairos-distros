@@ -11,29 +11,34 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && \
-    apt-get install -y \
-    bc=1.07.1* \
-    dbus-broker=33-* \
-    fancontrol=1:3.6.0* \
-    firmware-misc-nonfree=20230210-* \
-    firmware-realtek=20230210-* \
-    htop=3.2.2-* \
-    iotop-c=1.23-* \
-    intel-media-va-driver=23.1.1+* \
-    iscsiuio=2.1.8-* \
-    nethogs=0.8.7-* \
-    open-iscsi=2.1.10-* \
-    smartmontools=7.3-* \
-    usbutils=1:014-* \
-    wget=1.21.3-* \
+    apt-get install --allow-downgrades -y \
+    bc \
+    dbus-broker \
+    fancontrol \
+    firmware-misc-nonfree \
+    firmware-realtek \
+    htop \
+    iotop-c \
+    intel-media-va-driver \
+    iscsiuio \
+    nethogs \
+    open-iscsi \
+    smartmontools \
+    usbutils \
+    wget \
     && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    systemctl enable dbus-broker.service && \
-    echo "TYZBIT_HOME_URL=https://github.com/tyzbit/kairos-distros" >> /etc/os-release && \
-    echo "TYZBIT_VARIANT=debian" >> /etc/os-release
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Update kernel modules
-RUN kernel=$(ls /lib/modules | tail -n1) && \
-    depmod -a "${kernel}" && \
-    dracut -f "/boot/initrd-${kernel}" "${kernel}" && \
+# https://kairos.io/docs/advanced/customizing/#customizing-the-kernel
+# Create the kernel symlink
+RUN kernel=$(ls /boot/vmlinuz-* | head -n1) && \
+    ln -sf "${kernel#/boot/}" /boot/vmlinuz
+
+# Regenerate the initrd, in openSUSE we could just use "mkinitrd"
+RUN kernel=$(ls /lib/modules | head -n1) && \
+    dracut -v -f "/boot/initrd-${kernel}" "${kernel}" && \
     ln -sf "initrd-${kernel}" /boot/initrd
+
+# Update the module dependencies
+RUN kernel=$(ls /lib/modules | head -n1) && \
+    depmod -a "${kernel}"
