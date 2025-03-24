@@ -1,7 +1,6 @@
 # v3.3.1-k3sv1.32.2-k3s1
 FROM quay.io/kairos/kairos-init:latest AS kairos-init
 FROM debian:12.10
-ENV version
 
 COPY rootfs/ /
 
