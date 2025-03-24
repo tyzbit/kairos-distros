@@ -32,5 +32,6 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=kairos-init /kairos-init /kairos-init
-RUN /kairos-init &&\
+RUN /kairos-init \
+    -v v3.3.1-k3sv1.32.1-k3s1 && \
     rm /kairos-init
