@@ -31,7 +31,7 @@ RUN apt-get update && \
 
 # Force enp3s0
 RUN grub2-editenv - \
-    set "$(grub2-editenv - list | grep kernelopts) ip=enp3s0:dhcp"
+    set "$(grub2-editenv - list | grep kernelopts) ip=eth0:dhcp"
 
 # https://kairos.io/docs/advanced/customizing/#customizing-the-kernel
 # Create the kernel symlink
