@@ -1,6 +1,7 @@
 # v3.3.1-k3sv1.32.2-k3s1
 FROM quay.io/kairos/kairos-init:latest AS kairos-init
 FROM debian:12.10
+ARG TAG
 
 COPY rootfs/ /
 
@@ -20,5 +21,5 @@ RUN apt-get update && \
 
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN /kairos-init \
-    --version "${version}" && \
+    --version "${TAG}" && \
     rm /kairos-init
