@@ -25,7 +25,12 @@ RUN apt-get update && \
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN /kairos-init \
     --version "${VERSION}" \
+    -l debug \
+    -v core \
+    -m generic \
+    -t false \
     -k k3s \
+    --k8sversion 1.32.2 \
     -r "ghcr.io/tyzbit/kairos-distros" \
     && \
     rm /kairos-init
