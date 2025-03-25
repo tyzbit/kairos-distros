@@ -7,8 +7,6 @@ RUN apt-get update && \
     apt-get install --allow-downgrades -y \
     bc \
     fancontrol \
-    firmware-misc-nonfree \
-    firmware-realtek \
     iotop-c \
     intel-media-va-driver \
     iscsiuio \
