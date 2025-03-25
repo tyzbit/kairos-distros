@@ -30,7 +30,7 @@ RUN /kairos-init \
     -t false \
     -k k3s \
     --version "${KAIROS_VERSION}" \
-    --k8sversion "${K8S_VERSION}+1" \
+    --k8sversion "${K8S_VERSION}" \
     -r "ghcr.io/tyzbit/kairos-distros" \
     && \
     rm /kairos-init
