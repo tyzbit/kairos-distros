@@ -3,8 +3,6 @@ FROM quay.io/kairos/kairos-init:latest AS kairos-init
 FROM ubuntu:25.04
 ARG VERSION
 
-COPY rootfs/ /
-
 RUN apt-get update && \
     apt-get install --allow-downgrades -y \
     bc \
