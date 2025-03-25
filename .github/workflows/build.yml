@@ -25,13 +25,13 @@ jobs:
             distro=$(basename "$folder")
             version="$(grep KAIROS_VERSION= $folder/Dockerfile | sed -E 's/.*=(.*)/\1/')"
             k8sversion="$(grep K8S_VERSION= $folder/Dockerfile | sed -E 's/.*=(.*)/\1/')"
-            tag="$distro-v$version-k3sv$k8sversion-${{ github.run_number }}"
+            tag="${distro}-${version}-${k8sversion/+/}-${{ github.run_number }}"
 
             docker build \
-              -t "ghcr.io/${{ github.repository }}:$tag" \
+              -t "ghcr.io/${{ github.repository }}:${tag}" \
               --build-arg "VERSION=${version}" \
               --build-arg "K8SVERSION=${k8sversion}" \
               "$folder"
 
-            docker push ghcr.io/${{ github.repository }}:$tag
+            docker push ghcr.io/${{ github.repository }}:${tag}
           done
