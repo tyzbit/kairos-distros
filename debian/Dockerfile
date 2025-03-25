@@ -1,8 +1,7 @@
-# v3.3.2-k3sv1.32.2-k3s1
-FROM quay.io/kairos/kairos-init:latest AS kairos-init
+FROM quay.io/kairos/kairos-init:v0.4.2 AS kairos-init
 FROM debian:12.10
-ARG VERSION
-ARG K8SVERSION
+ENV KAIROS_VERSION=v3.3.2 
+ENV K8S_VERSION=1.32.2
 
 COPY rootfs/ /
 
@@ -30,8 +29,8 @@ RUN /kairos-init \
     -m generic \
     -t false \
     -k k3s \
-    --version "${VERSION}" \
-    --k8sversion "${K8SVERSION}" \
+    --version "${KAIROS_VERSION}" \
+    --k8sversion "${K8S_VERSION}+1" \
     -r "ghcr.io/tyzbit/kairos-distros" \
     && \
     rm /kairos-init
