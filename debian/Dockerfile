@@ -2,6 +2,7 @@
 FROM quay.io/kairos/kairos-init:latest AS kairos-init
 FROM debian:12.10
 ARG VERSION
+ARG K8SVERSION
 
 COPY rootfs/ /
 
@@ -24,13 +25,13 @@ RUN apt-get update && \
 
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN /kairos-init \
-    --version "${VERSION}" \
     -l debug \
-    -v core \
+    -v standard \
     -m generic \
     -t false \
     -k k3s \
-    --k8sversion v1.32.2 \
+    --version "${VERSION}" \
+    --k8sversion "${K8SVERSION}" \
     -r "ghcr.io/tyzbit/kairos-distros" \
     && \
     rm /kairos-init
