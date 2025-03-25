@@ -23,8 +23,8 @@ jobs:
         run: |
           for folder in */; do
             distro=$(basename "$folder")
-            version="$(cat $folder/Dockerfile | grep 'KAIROS_VERSION' | grep -Po 'v.*')"
-            k8sversion="$(cat $folder/Dockerfile | grep 'K8S_VERSION' | grep -Po '[0-9].*')"
+            version="$(grep KAIROS_VERSION= $folder/Dockerfile | sed 's/.*=(.*)/\1/')"
+            k8sversion="$(grep K8S_VERSION= $folder/Dockerfile | 's/.*=(.*)/\1/')"
             tag="$distro-$version-${{ github.run_number }}"
 
             docker build \
