@@ -1,6 +1,6 @@
 # v3.3.2-k3sv1.32.2-k3s1
 FROM quay.io/kairos/kairos-init:latest AS kairos-init
-FROM ubuntu:25.04
+FROM ubuntu:22.04
 ARG VERSION
 
 RUN apt-get update && \
