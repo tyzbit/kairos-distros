@@ -27,10 +27,6 @@ jobs:
             k8sversion="$(cat $folder/Dockerfile | grep 'K8S_VERSION' | grep -Po '[0-9].*')"
             tag="$distro-$version-${{ github.run_number }}"
 
-            for v in distro version k8sversion tag; do
-              echo "$v=${!v}"
-            done
-
             docker build \
               -t "ghcr.io/${{ github.repository }}:$tag" \
               --build-arg "VERSION=${version}" \
