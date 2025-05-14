@@ -1,9 +1,9 @@
 FROM quay.io/kairos/kairos-init:v0.4.2 AS kairos-init
 FROM debian:12.10
 # kairos-io/kairos
-ENV KAIROS_VERSION=3.3.2
+ENV KAIROS_VERSION=3.4.0
 # k3s-io/k3s
-ENV K8S_VERSION=v1.31.6+k3s1
+ENV K8S_VERSION=v1.31.7+k3s1
 
 COPY rootfs/ /
 
