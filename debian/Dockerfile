@@ -1,4 +1,4 @@
-FROM quay.io/kairos/kairos-init:v0.4.2 AS kairos-init
+FROM quay.io/kairos/kairos-init:v0.4.7 AS kairos-init
 FROM debian:12.10
 # kairos-io/kairos
 ENV KAIROS_VERSION=3.4.0
