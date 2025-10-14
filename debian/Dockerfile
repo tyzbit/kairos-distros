@@ -33,6 +33,5 @@ RUN /kairos-init \
     -p k3s \
     --version "${KAIROS_VERSION}" \
     --provider-k3s-version "${K8S_VERSION}" \
-    -r "ghcr.io/tyzbit/kairos-distros" \
     && \
     rm /kairos-init
