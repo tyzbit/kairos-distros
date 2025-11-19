@@ -1,4 +1,4 @@
-FROM quay.io/kairos/kairos-init:v0.6.1 AS kairos-init
+FROM quay.io/kairos/kairos-init:v0.6.2 AS kairos-init
 FROM debian:12.12
 # kairos-io/kairos
 ENV KAIROS_VERSION=3.5.4
@@ -23,6 +23,9 @@ RUN apt-get update && \
     wget \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Uncomment for testing
+RUN echo 'root:root' | chpasswd
 
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN /kairos-init \
