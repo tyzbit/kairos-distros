@@ -8,7 +8,7 @@ ENV K8S_VERSION=v1.32.10+k3s1
 COPY rootfs/ /
 
 RUN apt-get update && \
-    apt-get install --allow-downgrades -y \
+    apt-get install -y \
     bc \
     fancontrol \
     firmware-misc-nonfree \
