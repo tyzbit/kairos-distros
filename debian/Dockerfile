@@ -3,7 +3,7 @@ FROM debian:12.12
 # kairos-io/kairos
 ENV KAIROS_VERSION=3.5.10
 # k3s-io/k3s
-ENV K8S_VERSION=v1.32.10+k3s1
+ENV K8S_VERSION=v1.33.6+k3s1
 
 COPY rootfs/ /
 
