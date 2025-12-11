@@ -1,5 +1,5 @@
 FROM quay.io/kairos/kairos-init:v0.6.5 AS kairos-init
-FROM debian:13.2
+FROM debian:12.12
 # kairos-io/kairos
 ENV KAIROS_VERSION=3.5.10
 # k3s-io/k3s
@@ -8,15 +8,15 @@ ENV K8S_VERSION=v1.32.10+k3s1
 COPY rootfs/ /
 
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install --allow-downgrades -y \
     bc \
     fancontrol \
     firmware-misc-nonfree \
     firmware-realtek \
-#    iotop-c \
+    iotop-c \
     intel-media-va-driver \
     iscsiuio \
-#    nethogs \
+    nethogs \
     open-iscsi \
     smartmontools \
     usbutils \
