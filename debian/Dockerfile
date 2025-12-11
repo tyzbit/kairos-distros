@@ -13,7 +13,7 @@ RUN apt-get update && \
     fancontrol \
     firmware-misc-nonfree \
     firmware-realtek \
-    iotop-c \
+#    iotop-c \
     intel-media-va-driver \
     iscsiuio \
     nethogs \
