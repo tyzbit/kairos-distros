@@ -1,5 +1,5 @@
 FROM quay.io/kairos/kairos-init:v0.7.0 AS kairos-init
-FROM debian:12.12
+FROM debian:13.2
 # kairos-io/kairos
 ENV KAIROS_VERSION=3.5.10
 # k3s-io/k3s
