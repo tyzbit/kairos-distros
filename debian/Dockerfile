@@ -18,6 +18,7 @@ RUN apt-get update && \
     iscsiuio \
     nethogs \
     open-iscsi \
+    parted \
     smartmontools \
     usbutils \
     wget \
