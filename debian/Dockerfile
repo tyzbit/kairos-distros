@@ -16,7 +16,7 @@ RUN apt-get update && \
 #    iotop-c \
     intel-media-va-driver \
     iscsiuio \
-    nethogs \
+#    nethogs \
     open-iscsi \
     smartmontools \
     usbutils \
