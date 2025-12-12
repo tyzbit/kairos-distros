@@ -20,8 +20,6 @@ jobs:
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Build and push Docker images
-        env:
-          DEBUG_ROOT_PASSWORD: ${{ secrets.DEBUG_ROOT_PASSWORD }}
         run: |
           for folder in */; do
             distro=$(basename "$folder")
@@ -33,6 +31,7 @@ jobs:
               -t "ghcr.io/${{ github.repository }}:${tag}" \
               --build-arg "VERSION=${version}" \
               --build-arg "K8SVERSION=${k8sversion}" \
+              --build-arg "DEBUG_ROOT_PASSWORD=${{ secrets.DEBUG_ROOT_PASSWORD }}"
               "$folder"
 
             docker push ghcr.io/${{ github.repository }}:${tag}
