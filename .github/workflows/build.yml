@@ -31,7 +31,7 @@ jobs:
               -t "ghcr.io/${{ github.repository }}:${tag}" \
               --build-arg "VERSION=${version}" \
               --build-arg "K8SVERSION=${k8sversion}" \
-              --build-arg "DEBUG_ROOT_PASSWORD=${{ secrets.DEBUG_ROOT_PASSWORD }}"
+              --build-arg "DEBUG_ROOT_PASSWORD=${{ secrets.DEBUG_ROOT_PASSWORD }}" \
               "$folder"
 
             docker push ghcr.io/${{ github.repository }}:${tag}
