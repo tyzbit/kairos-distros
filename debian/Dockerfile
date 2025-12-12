@@ -26,7 +26,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Uncomment for testing
-RUN echo 'root:root' | chpasswd
+# RUN echo 'root:root' | chpasswd
 
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN /kairos-init \
