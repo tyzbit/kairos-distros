@@ -1,10 +1,10 @@
-FROM quay.io/kairos/kairos-init:v0.6.5 AS kairos-init
+FROM quay.io/kairos/kairos-init:v0.7.0 AS kairos-init
 FROM debian:12.12
 # kairos-io/kairos
-ENV KAIROS_VERSION=3.6.0
+ENV KAIROS_VERSION=3.7.2
 ARG DEBUG_ROOT_PASSWORD
 # k3s-io/k3s
-ENV K8S_VERSION=v1.34.2+k3s1
+ENV K8S_VERSION=v1.35.0-k3s3
 
 COPY rootfs/ /
 
